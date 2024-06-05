@@ -1,8 +1,7 @@
 import "./App.css";
-import React, { useState } from "react";
+import React, { useState, Suspense, lazy } from "react";
 import AllNavbars from "./components/AllNavbars";
 import Footer from "./components/Footer";
-import AllProducts from "./components/AllProducts";
 import Product from "./components/Product";
 
 function App() {
@@ -16,6 +15,7 @@ function App() {
 			setCartItemCount((prevCount) => prevCount - 1);
 		}
 	};
+	const LazyComponent = lazy(() => import("./components/AllProducts"));
 	return (
 		<div className='App'>
 			<AllNavbars cartItemCount={cartItemCount} />
@@ -24,7 +24,9 @@ function App() {
 				addToCart={addToCart}
 				removeFromCart={removeFromCart}
 			/>
-			<AllProducts />
+			<Suspense fallback={<div>Loading...</div>}>
+				<LazyComponent />
+			</Suspense>
 			<Footer />
 		</div>
 	);
