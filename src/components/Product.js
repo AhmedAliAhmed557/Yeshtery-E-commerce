@@ -1,6 +1,12 @@
 import React from "react";
 
-function Product({ cartItemCount, addToCart, removeFromCart }) {
+function Product({
+	cartItemCount,
+	addToCart,
+	removeFromCart,
+	isPutInCart,
+	setIsPutInCart,
+}) {
 	return (
 		<div className='product-info flex-between'>
 			<div className='gallery'>
@@ -86,8 +92,16 @@ function Product({ cartItemCount, addToCart, removeFromCart }) {
 							</div>
 						</div>
 						<div className='btns'>
-							<button className='add'>Add to cart</button>
-							<button className='store'>Pickup From Store</button>
+							<button
+								style={{ cursor: "pointer" }}
+								onClick={() => setIsPutInCart(true)}
+								className='add'
+							>
+								Add to cart
+							</button>
+							<button style={{ cursor: "pointer" }} className='store'>
+								Pickup From Store
+							</button>
 						</div>
 					</div>
 				</div>

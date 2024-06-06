@@ -1,7 +1,12 @@
 import React, { useState } from "react";
 import Cart from "./Cart";
 
-function SecondNavbar({ cartItemCount }) {
+function SecondNavbar({
+	cartItemCount,
+	setCartItemCount,
+	handleRemove,
+	isPutInCart,
+}) {
 	const [cartVisible, setCartVisible] = useState(false);
 
 	const handleCartClick = () => {
@@ -39,6 +44,9 @@ function SecondNavbar({ cartItemCount }) {
 				cartVisible={cartVisible}
 				toggleCartVisibility={handleCartClick}
 				cartItemCount={cartItemCount}
+				setCartItemCount={setCartItemCount}
+				handleRemove={handleRemove}
+				isPutInCart={isPutInCart}
 			/>
 		</>
 	);
