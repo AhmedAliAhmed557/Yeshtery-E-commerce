@@ -12,7 +12,15 @@ function Product({
 			<div className='gallery'>
 				<div className='main'>
 					<img className='icon' src='../images/number.png' alt='number' />
-					<img src='../images/boy1.png' alt='boy' />
+					<img
+						src='../images/main-adidas.webp'
+						alt='boy'
+						style={{
+							maxWidth: "100%",
+							maxHeight: "600px",
+							borderRadius: "15px",
+						}}
+					/>
 				</div>
 				<div className='slider flex-between'>
 					<img src='../images/left2.png' alt='left' />
